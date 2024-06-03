@@ -13,11 +13,11 @@ def atob(encoded_string):
     return decoded_string
 
 def load():
-    with open('.json', 'r', encoding='utf-8') as file:
+    with open('/root/.xdb/.json', 'r', encoding='utf-8') as file:
         return json.load(file)
     
 def save(data):
-    with open('.json', 'w', encoding='utf-8') as file:
+    with open('/root/.xdb/.json', 'w', encoding='utf-8') as file:
         json.dump(data, file, indent=4, ensure_ascii=False) 
 
 def add(key,value):
