@@ -27,7 +27,11 @@ def add(key,value):
 
 def get(key):
     data = load()
-    return atob(data[btoa(key)])
+    key = btoa(key)
+    if key in data:
+        return atob(data[btoa(key)])
+    else:
+        return ':('
 
 def update(key,value):
     data = load()
@@ -36,8 +40,12 @@ def update(key,value):
 
 def delete(key):
     data = load()
-    del data[btoa(key)]
-    save(data)
+    key = btoa(key)
+    if key in data:
+        del data[key]
+        save(data)
+    else:
+        print('Already deleted (?)')
 
 if args[1] == 'add' and len(args) == 4:
     add(args[2],args[3])
